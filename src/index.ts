@@ -9,8 +9,6 @@ export default class PriceHolder {
 
     prices: Prices
     average: number
-    priceChanged: boolean
-    status
 
     constructor(average){
         this.average = average
