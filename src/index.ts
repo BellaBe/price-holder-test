@@ -1,6 +1,3 @@
-
-import EventEmitter from 'events'
-
 interface Prices {
     [key: string]: [number]
 }
@@ -31,8 +28,7 @@ export default class PriceHolder {
     // Get a rolling average of historical prices for the given symbol
     getAverage (symbol: string){
         if(symbol in this.prices){
-            const sum = this.prices[symbol].slice(-this.average).reduce((accum, i) => accum + i, 0)
-            return sum / this.average
+            return (this.prices[symbol].slice(-this.average).reduce((accum, i) => accum + i, 0)) / this.average
         }
     }
   
@@ -54,8 +50,6 @@ export default class PriceHolder {
     // Somehow allow a consumer to subscribe to (and unsubscribe from) price changes.
     subscribe (symbol: string): unknown {
       // Add code here. Don't forget to change the return type.
-
-      const eventEmitter = new EventEmitter()
       return
     }
   }
